@@ -48,6 +48,13 @@
 
     <section class="card">
       <h2>Livros <span id="count" class="count"></span></h2>
+      <label class="filter">Mostrar
+        <select id="filter">
+          <option value="todos">Todos</option>
+          <option value="por-ler">Por ler</option>
+          <option value="lido">Lidos</option>
+        </select>
+      </label>
       <table>
         <thead>
           <tr><th>Título</th><th>Autor</th><th>Estado</th><th>Nota</th><th></th></tr>
@@ -58,7 +65,7 @@
     </section>
   </main>
 
-  <footer>v0.1.0</footer>
+  <footer>v0.2.0</footer>
 
   <script src="app.js"></script>
 </body>
