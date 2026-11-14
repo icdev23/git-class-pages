@@ -34,6 +34,7 @@ const cancelBtn = document.getElementById("cancel-btn");
 const list = document.getElementById("book-list");
 const empty = document.getElementById("empty");
 const count = document.getElementById("count");
+const filterInput = document.getElementById("filter");
 
 // --- Render ----------------------------------------------------------
 
@@ -55,7 +56,10 @@ function button(label, className, onClick) {
 function render() {
   list.replaceChildren();
 
-  for (const book of books) {
+  const filter = filterInput.value;
+  const visible = filter === "todos" ? books : books.filter((b) => b.status === filter);
+
+  for (const book of visible) {
     const tr = document.createElement("tr");
     tr.append(
       cell(book.title),
@@ -74,8 +78,8 @@ function render() {
     list.append(tr);
   }
 
-  empty.hidden = books.length > 0;
-  count.textContent = books.length ? `(${books.length})` : "";
+  empty.hidden = visible.length > 0;
+  count.textContent = books.length ? `(${visible.length} de ${books.length})` : "";
 }
 
 // --- Ações -----------------------------------------------------------
@@ -133,5 +137,6 @@ form.addEventListener("submit", (event) => {
 });
 
 cancelBtn.addEventListener("click", resetForm);
+filterInput.addEventListener("change", render);
 
 render();
