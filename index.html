@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de livros</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Catálogo de livros</h1>
+    <p class="subtitle">Os dados ficam guardados neste browser (localStorage).</p>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2 id="form-title">Novo livro</h2>
+      <form id="book-form">
+        <input type="hidden" id="book-id">
+        <label>Título
+          <input type="text" id="title" required>
+        </label>
+        <label>Autor
+          <input type="text" id="author" required>
+        </label>
+        <label>Estado
+          <select id="status">
+            <option value="por-ler">Por ler</option>
+            <option value="lido">Lido</option>
+          </select>
+        </label>
+        <label>Nota
+          <select id="rating">
+            <option value="">—</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+        </label>
+        <div class="actions">
+          <button type="submit" id="save-btn">Adicionar</button>
+          <button type="button" id="cancel-btn" class="secondary" hidden>Cancelar</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Livros <span id="count" class="count"></span></h2>
+      <table>
+        <thead>
+          <tr><th>Título</th><th>Autor</th><th>Estado</th><th>Nota</th><th></th></tr>
+        </thead>
+        <tbody id="book-list"></tbody>
+      </table>
+      <p id="empty" class="empty">Ainda não há livros.</p>
+    </section>
+  </main>
+
+  <footer>v0.1.0</footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Segredos e configuração local
+.env
+.env.*
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/
